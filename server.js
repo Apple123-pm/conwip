@@ -28,12 +28,12 @@ db.connect((err) => {
 });
 
 // API endpoint to fetch all data from Station_1
-app.get("/fetch/station1", (req, res) => {
-  const query = "SELECT * FROM Station_1";
+app.post("/fetchall", (req, res) => {
+  const query = "SELECT * FROM Station_1 ";
 
   db.query(query, (err, results) => {
     if (err) {
-      console.error("Error fetching data from Station_1:", err);
+      console.error("Error fetching data:", err);
       res.status(500).json({ error: "Database query failed" });
     } else {
       res.json(results);
@@ -42,12 +42,12 @@ app.get("/fetch/station1", (req, res) => {
 });
 
 // API endpoint to fetch all data from Station_2
-app.get("/fetch/station2", (req, res) => {
-  const query = "SELECT * FROM Station_2";
+app.post("/fetchall", (req, res) => {
+  const query2 = "SELECT * FROM Station_2 ";
 
-  db.query(query, (err, results) => {
+  db.query(query2, (err, results) => {
     if (err) {
-      console.error("Error fetching data from Station_2:", err);
+      console.error("Error fetching data:", err);
       res.status(500).json({ error: "Database query failed" });
     } else {
       res.json(results);
@@ -59,3 +59,4 @@ app.get("/fetch/station2", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
